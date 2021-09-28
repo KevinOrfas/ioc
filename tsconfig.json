@@ -1,0 +1,13 @@
+{
+	"include": [
+		"**/*",
+		"**/.*"
+	],
+	"compilerOptions": {	
+		"target": "ES5",
+		"strict": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+	}
+}
