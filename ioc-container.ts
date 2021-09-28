@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable max-classes-per-file */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 export class IoCContainer {
@@ -42,4 +44,11 @@ export class IoCContainer {
   ): Record<string, unknown>[] {
     return names.map((name) => this.resolve(name));
   }
+}
+
+export function Register(name: string, dependencies: string[]): Function {
+  const container = IoCContainer.instance;
+  return function <T extends { new (...args): {} }>(constructor: T): void {
+    container.register(name, dependencies, constructor);
+  };
 }

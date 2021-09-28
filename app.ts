@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-classes-per-file */
-import { IoCContainer } from './ioc-container';
+import { IoCContainer, Register } from './ioc-container';
 
 interface IMovie {
   playMovie(): void;
@@ -16,6 +16,7 @@ interface IPlayer {
   play(): void;
 }
 
+@Register('IMovie', [])
 class Movie implements IMovie {
   pauseMovie(): void {
     console.log('Paused Movie');
@@ -26,6 +27,7 @@ class Movie implements IMovie {
   }
 }
 
+@Register('ISerie', [])
 class Serie implements ISerie {
   pauseEpisode(): void {
     console.log('Paused Episode');
@@ -36,6 +38,7 @@ class Serie implements ISerie {
   }
 }
 
+@Register('IPlayer', ['IMovie', 'ISerie'])
 class Player implements IPlayer {
   constructor(private movie: IMovie, private serie: ISerie) {
     this.movie = movie;
@@ -50,9 +53,9 @@ class Player implements IPlayer {
 }
 
 const container = IoCContainer.instance;
-container.register('IMovie', [], Movie);
-container.register('ISerie', [], Serie);
-container.register('IPlayer', ['IMovie', 'ISerie'], Player);
+// container.register('IMovie', [], Movie);
+// container.register('ISerie', [], Serie);
+// container.register('IPlayer', ['IMovie', 'ISerie'], Player);
 
 const movieClass = container.resolve<IMovie>('IMovie');
 movieClass.playMovie();
