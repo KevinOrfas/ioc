@@ -3,7 +3,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev": "ts-node app.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",

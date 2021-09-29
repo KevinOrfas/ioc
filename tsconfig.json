@@ -1,8 +1,8 @@
 {
 	"include": [
-		"**/*",
-		"**/.*"
+		"lib/**/*",
 	],
+	"exclude": ["lib/**/*.test.ts"],
 	"compilerOptions": {	
 		"target": "ES5",
 		"strict": true,
@@ -10,6 +10,7 @@
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"noImplicitAny": false,
-		"declaration": true
+		"declaration": true,
+		"outDir": "./dist"
 	}
 }
