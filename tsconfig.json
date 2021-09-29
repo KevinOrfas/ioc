@@ -9,6 +9,7 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
-		"noImplicitAny": false
+		"noImplicitAny": false,
+		"declaration": true
 	}
 }

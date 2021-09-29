@@ -33,8 +33,6 @@ class IoCContainer {
 
   // make it generic as we use string as names so we need to get IDE's intelligence
   resolve<T>(name: string): T {
-    console.log('name', name);
-    console.log('this._dependencies', this._dependencies);
     if (!this._dependencies[name]) {
       throw new Error(`Unresolved dependency ${name}`);
     }

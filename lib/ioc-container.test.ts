@@ -18,7 +18,7 @@ describe('Dependency Container', () => {
     expect(self).toBeInstanceOf(IoCContainer);
   });
 
-  it('Should NOT be able to get unregistered services', () => {
+  it('Should not be able to get unregistered services', () => {
     interface IMovie {}
     // if not declare the decorator the should throw an error @Register('IMovie', [])
     class Movie implements IMovie {}
